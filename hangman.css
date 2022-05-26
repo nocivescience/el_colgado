@@ -1,10 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=VT323&display=swap');
 body{
     font-family: 'VT323', monospace;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+#container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 .game-container{
     box-shadow: 0px 0px 10px #000;
@@ -15,7 +23,9 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+}
+.notification-container{
+    opacity: 0;
 }
 svg{
     border: 1px solid black;
@@ -24,4 +34,13 @@ svg line{
     stroke: black;
     stroke-width: 2px;
     stroke-linecap: round;
+}
+.letter{
+    color: red;
+}
+.notification-container.show{
+    position: absolute;
+    transform: scale(2);
+    top:300px;
+    opacity: 1;
 }

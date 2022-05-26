@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="./hangman.css">
 </head>
 <body>
-    <h1>El Cogado</h1>
+    <div id="container">
+        <h1>El Cogado</h1>
     <p>Encuentra la palabra correcta</p>
     <div class="game-container">
         <svg height="250" width="200">
@@ -22,13 +23,21 @@
             <line x1="100" y1="110" x2="70" y2="140"/>
             <line x1="100" y1="110" x2="130" y2="140"/>
         </svg>
-        <div class="worng-letter-container">
+        <div class="wrong-letter-container">
             <div class="wrong-letter"></div>
         </div>
         <div class="word" id="word"></div>
     </div>
     <div class="popup-container" id="popup-container">
-        
+        <div class="popup">
+            <h2 id="final-message"></h2>
+            <button id="play-button">Jugar de nuevo</button>
+        </div>
+    </div>
+    </div>
+    <!-- notificacion -->
+    <div class="notification-container" id="notification-container">
+        <p>Ya ingresaste esta letra</p>
     </div>
 </body>
 <script src="./hangman.js"></script>
