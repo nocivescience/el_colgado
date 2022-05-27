@@ -1,18 +1,18 @@
 const notificationElement = document.getElementById('notification-container');
 const wordEl= document.getElementById('word');
 const wordsList=['hola','mundo','javascript','python','hello','world'];
+const capsuleWrong=document.querySelectorAll('.target-wrong')
 const wrongLetterContainer=document.querySelector('.wrong-letter-container');
+const figureParts=document.querySelectorAll('.figure-part');
 const correctLetters=[];
 const wrongLetters=[];
 let wordSelected=wordsList[Math.floor(Math.random()*wordsList.length)];
 function displayWord(){
-    wordEl.innerHTML=`
-        ${wordSelected.split('').map(letter=>`
-            <span class="letter">
-                ${correctLetters.includes(letter) ? letter : ''}
-            </span>
-        `).join('')}
-    `;
+    const correctLetter=wordSelected.split('').map(letter=>{
+        const wordDiv=document.createElement('div');
+        wordDiv.classNme='word';
+        correctLetters.includes(letter) ? letter : ''
+    })
     const innerWord=wordEl.innerText.replace(/\n/g,'');
     if(innerWord===wordSelected){
         // notificationElement.classList.add('show');
@@ -28,10 +28,22 @@ function showNotification(){
     },2000);
 }
 function updateWrongLettersEl(){
-    wrongLetterContainer.innerHTML=`
-        ${wrongLetters.length > 0 ? '<p>Wrong</p>' : ''}
-        ${wrongLetters.map(letter=>`<span>${letter}</span>`)}
-    `;
+    for(let i=0;i<wrongLetters.length;i++){
+        const letter=wrongLetters[i];
+        capsuleWrong[i].innerText=letter;
+        capsuleWrong[i].classList.add('show');
+    }
+    figureParts.forEach((part,index)=>{
+        const errors=wrongLetters.length;
+        if(index<errors){
+            part.style.display='block';
+        }else{
+            part.style.display='none';
+        }
+        if(wrongLetters.length===figureParts.length){
+            notificationElement.innerText='You lost! :(';
+        }
+    })
 }
 playAgainBtn=document.getElementById('play-button');
 playAgainBtn.addEventListener('click',function(){

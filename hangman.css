@@ -36,11 +36,80 @@ svg line{
     stroke-linecap: round;
 }
 .letter{
-    color: red;
+    color: rgb(0, 0, 0);
+    border-bottom: 1px solid black;
+    display: inline-flex;
+    border: 1px solid black;
+    align-items: center;
+    justify-content: center;
+    margin-top:4px;
+    height: 50px;
+    width: 30px;
 }
 .notification-container.show{
     position: absolute;
     transform: scale(2);
     top:300px;
     opacity: 1;
+}
+.wrong-letter-container{
+    height: 30px;
+    width: 100%;
+}
+.word{
+    display: flex;
+    flex-direction: center;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    width:30px;
+    position: absolute;
+    top: 150px;
+    left: 5%;
+}
+.wrong-letter-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top:30px;
+    position: absolute;
+    top:150px;
+    right: 5%;
+    width: 30px;
+    height: 300px;
+}
+.target-wrong{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: red;
+    margin:5px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+}
+.target-wrong.show{
+    animation: acto 1s ease-in-out;
+}
+
+@keyframes acto {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(1080deg);
+    }
+}
+.word{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgb(0, 120, 232);
+    margin:5px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
 }
